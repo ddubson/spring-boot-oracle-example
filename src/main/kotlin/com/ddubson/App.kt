@@ -15,7 +15,6 @@ class App(val jdbcTemplate: JdbcTemplate) : CommandLineRunner {
 
         println("Querying...")
         jdbcTemplate.query(query) { rs, _ ->
-            println("Creating a movie....")
             Movie(rs.getInt("id"), rs.getString("title"))
         }.forEach { movie ->
             println("Movie: ${movie.id} - ${movie.title}")
